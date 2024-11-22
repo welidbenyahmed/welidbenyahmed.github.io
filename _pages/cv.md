@@ -8,6 +8,7 @@ redirect_from:
 ---
 
 {% include base_path %}
+[Download CV here] (https://welidbenyahmed.github.io/files/cv.pdf)
 
 Education
 ======
