@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certifications — Welid Ben Yahmed</title>
+  <meta name="description" content="Professional certifications: IBM Data Science Professional Certificate and ongoing learning in AI, ML, and engineering.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:           #08080e;
+      --text:         #f0eee8;
+      --accent:       #3B82F6;
+      --muted:        rgba(240,238,232,0.42);
+      --glass:        rgba(240,238,232,0.05);
+      --glass-border: rgba(240,238,232,0.10);
+      --ff-display:   'Fraunces', Georgia, serif;
+      --ff-body:      'DM Sans', system-ui, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--ff-body); font-size: 16px; line-height: 1.6; overflow-x: hidden; cursor: auto; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    .grid-bg { position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: linear-gradient(rgba(240,238,232,0.028) 1px, transparent 1px), linear-gradient(90deg, rgba(240,238,232,0.028) 1px, transparent 1px);
+      background-size: 80px 80px; }
+
+    /* NAV */
+    .pnav { position: fixed; inset-block-start: 0; inset-inline: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.6rem 4rem;
+      transition: background .45s, backdrop-filter .45s, border-color .45s;
+      border-bottom: 1px solid transparent; }
+    .pnav.glass { background: rgba(8,8,14,.68); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); border-color: var(--glass-border); }
+    .pnav-logo { font-family: var(--ff-display); font-size: 1.15rem; font-weight: 500; letter-spacing: -.02em; }
+    .pnav-back { font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); transition: color .2s; display: flex; align-items: center; gap: .5rem; }
+    .pnav-back:hover { color: var(--text); }
+
+    /* LAYOUT */
+    .wrap { max-width: 1440px; margin: 0 auto; padding: 0 4rem; }
+    .rv { opacity: 0; transform: translateY(36px); transition: opacity .85s cubic-bezier(.16,1,.3,1), transform .85s cubic-bezier(.16,1,.3,1); }
+    .rv.on { opacity: 1; transform: none; }
+    .rv-d1 { transition-delay: .12s; }
+    .rv-d2 { transition-delay: .24s; }
+    .rv-d3 { transition-delay: .36s; }
+    .section-label { display: flex; align-items: center; gap: 1rem; font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 4.5rem; }
+    .section-label::after { content: ''; flex: 0 0 56px; height: 1px; background: var(--glass-border); }
+
+    /* HERO */
+    .ph-hero { position: relative; z-index: 2; padding: 18rem 0 9rem; }
+    .ph-eyebrow { font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: 2rem; opacity: 0; animation: fadeUp .7s .3s cubic-bezier(.16,1,.3,1) forwards; }
+    .ph-title { font-family: var(--ff-display); font-size: clamp(4rem, 8vw, 8.5rem); font-weight: 900; letter-spacing: -.04em; line-height: .9; margin-bottom: 3rem; }
+    .word-row { overflow: hidden; display: block; }
+    .word-inner { display: block; transform: translateY(110%); animation: slideUp .9s cubic-bezier(.16,1,.3,1) forwards; }
+    .word-row:nth-child(1) .word-inner { animation-delay: .1s; }
+    .word-row:nth-child(2) .word-inner { animation-delay: .25s; }
+    @keyframes slideUp { to { transform: translateY(0); } }
+    @keyframes fadeUp  { to { opacity: 1; } }
+    .ph-tags { display: flex; flex-wrap: wrap; gap: .55rem; opacity: 0; animation: fadeUp .6s .55s cubic-bezier(.16,1,.3,1) forwards; }
+    .g-tag { display: inline-flex; align-items: center; gap: .42rem; padding: .38rem .95rem; background: var(--glass); border: 1px solid var(--glass-border); border-radius: 100px; font-size: .75rem; letter-spacing: .02em; backdrop-filter: blur(12px); }
+    .g-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+    .ph-hero-stats { display: flex; gap: 5rem; margin-top: 5rem; padding-top: 3rem; border-top: 1px solid var(--glass-border); opacity: 0; animation: fadeUp .7s .75s cubic-bezier(.16,1,.3,1) forwards; }
+    .ph-stat-val { font-family: var(--ff-display); font-size: 2.4rem; font-weight: 800; letter-spacing: -.03em; color: var(--accent); line-height: 1; }
+    .ph-stat-label { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-top: .4rem; }
+
+    /* SECTIONS */
+    .ph-section { padding: 9rem 0; position: relative; z-index: 2; }
+    .ph-section-bordered { border-top: 1px solid var(--glass-border); }
+
+    /* FEATURED CERT */
+    .cert-featured { display: grid; grid-template-columns: 1fr 1.2fr; gap: 7rem; align-items: start; }
+    .cert-badge-wrap { position: sticky; top: 9rem; }
+    .cert-badge { width: 100%; aspect-ratio: 4/3; border-radius: 4px; background: var(--glass); border: 1px solid var(--glass-border); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.2rem; overflow: hidden; }
+    .cert-badge img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; }
+    .cert-badge-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.2rem; width: 100%; height: 100%; }
+    .cert-logo { font-family: var(--ff-display); font-size: 3.5rem; font-weight: 900; letter-spacing: -.05em; color: var(--accent); }
+    .cert-logo-sub { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+    .cert-badge-caption { display: flex; justify-content: space-between; margin-top: 1rem; }
+    .cert-badge-caption span { font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+    .cert-body { }
+    .cert-issuer { font-size: .75rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.4rem; }
+    .cert-title-large { font-family: var(--ff-display); font-size: clamp(2.2rem, 3.8vw, 3.6rem); font-weight: 800; letter-spacing: -.035em; line-height: 1.05; margin-bottom: 1.8rem; }
+    .cert-meta { display: flex; gap: 2.5rem; margin-bottom: 2.8rem; padding-bottom: 2.8rem; border-bottom: 1px solid var(--glass-border); }
+    .cert-meta-item { }
+    .cert-meta-val { font-family: var(--ff-display); font-size: 2rem; font-weight: 800; letter-spacing: -.03em; color: var(--accent); line-height: 1; }
+    .cert-meta-label { font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-top: .3rem; }
+    .cert-desc { font-size: 1rem; line-height: 1.85; color: rgba(240,238,232,.72); margin-bottom: 2.8rem; }
+    .cert-courses-label { font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.4rem; }
+    .cert-courses { list-style: none; }
+    .cert-course-item { display: flex; align-items: baseline; gap: 1.1rem; padding: .9rem 0; border-bottom: 1px solid var(--glass-border); font-size: .9rem; color: rgba(240,238,232,.72); }
+    .cert-course-item:first-child { border-top: 1px solid var(--glass-border); }
+    .cert-course-num { font-family: var(--ff-display); font-style: italic; font-size: .78rem; color: var(--accent); flex-shrink: 0; }
+
+    /* CERT CTA */
+    .cert-capstone { margin-top: 2.8rem; padding-top: 2.4rem; border-top: 1px solid var(--glass-border); }
+    .cert-capstone-note { font-size: .9rem; line-height: 1.82; color: rgba(240,238,232,.65); margin-bottom: 2rem; max-width: 520px; }
+    .cert-cta { display: inline-flex; align-items: center; gap: .6rem; font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--bg); background: var(--accent); border-radius: 100px; padding: .72rem 1.8rem; font-weight: 700; transition: box-shadow .25s, transform .2s; }
+    .cert-cta:hover { box-shadow: 0 0 28px rgba(59,130,246,.45); transform: scale(1.03); }
+    .cert-cta svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+    /* SKILLS GRID */
+    .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    .skill-chip { padding: 1.4rem 1.8rem; border: 1px solid var(--glass-border); border-radius: 4px; background: var(--glass); transition: border-color .3s; font-size: .85rem; line-height: 1.4; }
+    .skill-chip:hover { border-color: rgba(59,130,246,.4); }
+    .skill-chip-cat { font-size: .62rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: .5rem; }
+
+    /* IN PROGRESS */
+    .inprogress-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .inprogress-card { padding: 2.4rem 2.2rem; border: 1px solid var(--glass-border); border-radius: 4px; background: var(--glass); transition: border-color .3s; }
+    .inprogress-card:hover { border-color: rgba(59,130,246,.4); }
+    .inprogress-status { display: inline-flex; align-items: center; gap: .45rem; font-size: .65rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.6rem; }
+    .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse-dot 2s ease-in-out infinite; }
+    @keyframes pulse-dot { 0%,100% { opacity: 1; } 50% { opacity: .3; } }
+    .inprogress-title { font-family: var(--ff-display); font-size: 1.35rem; font-weight: 700; letter-spacing: -.02em; margin-bottom: .8rem; line-height: 1.2; }
+    .inprogress-issuer { font-size: .78rem; color: var(--muted); margin-bottom: 1rem; }
+    .inprogress-progress { margin-top: 1.5rem; }
+    .inprogress-progress-label { display: flex; justify-content: space-between; font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; }
+    .inprogress-bar { width: 100%; height: 2px; background: var(--glass-border); border-radius: 1px; overflow: hidden; }
+    .inprogress-fill { height: 100%; background: var(--accent); border-radius: 1px; transition: width 1.4s cubic-bezier(.16,1,.3,1); width: 0; }
+    .inprogress-card.lit .inprogress-fill { width: var(--pct); }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--glass-border); padding: 2.4rem 4rem; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; }
+    .foot-brand { font-family: var(--ff-display); font-size: 1rem; font-weight: 500; }
+    .foot-sub { font-size: .68rem; letter-spacing: .08em; color: var(--muted); margin-top: .3rem; }
+    .foot-links { display: flex; gap: 2rem; list-style: none; }
+    .foot-links a { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); transition: color .2s; }
+    .foot-links a:hover { color: var(--text); }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+      .word-inner { transform: none; }
+    }
+    @media (max-width: 1024px) {
+      .pnav { padding: 1.3rem 2rem; }
+      .wrap { padding: 0 2rem; }
+      .ph-hero { padding: 13rem 0 6rem; }
+      .ph-hero-stats { gap: 2.5rem; }
+      .cert-featured { grid-template-columns: 1fr; gap: 3.5rem; }
+      .cert-badge-wrap { position: static; }
+      .cert-badge { max-width: 400px; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .inprogress-grid { grid-template-columns: 1fr 1fr; }
+      footer { flex-direction: column; gap: 1.6rem; text-align: center; }
+    }
+    @media (max-width: 600px) {
+      .pnav { padding: 1rem 1.5rem; }
+      .wrap { padding: 0 1.5rem; }
+      .ph-hero { padding: 10rem 0 5rem; }
+      .ph-hero-stats { gap: 1.8rem; flex-wrap: wrap; }
+      .cert-meta { flex-wrap: wrap; gap: 1.5rem; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .inprogress-grid { grid-template-columns: 1fr; }
+      .ph-section { padding: 5.5rem 0; }
+      .section-label { margin-bottom: 2.5rem; }
+      footer { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-bg" aria-hidden="true"></div>
+
+  <header class="pnav" id="pnav" role="banner">
+    <a href="index.html" class="pnav-logo">WBY</a>
+    <a href="index.html" class="pnav-back">&#8592; Portfolio</a>
+  </header>
+
+  <!-- HERO -->
+  <section class="ph-hero" aria-labelledby="cert-page-title">
+    <div class="wrap">
+      <p class="ph-eyebrow">Credentials &nbsp;&middot;&nbsp; Lifelong Learning</p>
+      <h1 class="ph-title" id="cert-page-title">
+        <span class="word-row"><span class="word-inner">Certifi&shy;cations</span></span>
+        <span class="word-row"><span class="word-inner">&amp; Skills</span></span>
+      </h1>
+      <div class="ph-tags">
+        <span class="g-tag"><span class="g-dot"></span>IBM</span>
+        <span class="g-tag"><span class="g-dot"></span>Coursera</span>
+        <span class="g-tag"><span class="g-dot"></span>Data Science</span>
+        <span class="g-tag"><span class="g-dot"></span>Python</span>
+        <span class="g-tag"><span class="g-dot"></span>Machine Learning</span>
+      </div>
+      <div class="ph-hero-stats">
+        <div>
+          <div class="ph-stat-val">10+</div>
+          <div class="ph-stat-label">Courses</div>
+        </div>
+        <div>
+          <div class="ph-stat-val">IBM</div>
+          <div class="ph-stat-label">Issuer</div>
+        </div>
+        <div>
+          <div class="ph-stat-val">2+</div>
+          <div class="ph-stat-label">In Progress</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED: IBM DATA SCIENCE -->
+  <section class="ph-section ph-section-bordered" aria-labelledby="ibm-heading">
+    <div class="wrap">
+      <p class="section-label rv" id="ibm-heading">Featured Certification</p>
+      <div class="cert-featured">
+        <div class="cert-badge-wrap rv">
+          <div class="cert-badge" id="cert-badge">
+            <div class="cert-badge-placeholder" id="cert-placeholder">
+              <div class="cert-logo">IBM</div>
+              <div class="cert-logo-sub">Data Science Professional</div>
+            </div>
+          </div>
+          <div class="cert-badge-caption">
+            <span>IBM / Coursera</span>
+            <span>Professional Certificate</span>
+          </div>
+        </div>
+        <div class="rv rv-d1">
+          <p class="cert-issuer">IBM &nbsp;&middot;&nbsp; Coursera</p>
+          <h2 class="cert-title-large">IBM Data Science Professional Certificate</h2>
+          <div class="cert-meta">
+            <div class="cert-meta-item">
+              <div class="cert-meta-val">10</div>
+              <div class="cert-meta-label">Courses</div>
+            </div>
+            <div class="cert-meta-item">
+              <div class="cert-meta-val">V3</div>
+              <div class="cert-meta-label">Version</div>
+            </div>
+            <div class="cert-meta-item">
+              <div class="cert-meta-val">&#10003;</div>
+              <div class="cert-meta-label">Completed</div>
+            </div>
+          </div>
+          <p class="cert-desc">An industry-recognised professional certificate covering the full data science pipeline — from data wrangling and SQL to machine learning, deep learning, and deployment. Delivered by IBM subject matter experts via Coursera with hands-on labs on IBM Cloud.</p>
+          <p class="cert-courses-label">Curriculum — 10 Courses</p>
+          <ul class="cert-courses">
+            <li class="cert-course-item"><span class="cert-course-num">01</span>What is Data Science?</li>
+            <li class="cert-course-item"><span class="cert-course-num">02</span>Tools for Data Science</li>
+            <li class="cert-course-item"><span class="cert-course-num">03</span>Data Science Methodology</li>
+            <li class="cert-course-item"><span class="cert-course-num">04</span>Python for Data Science, AI &amp; Development</li>
+            <li class="cert-course-item"><span class="cert-course-num">05</span>Python Project for Data Science</li>
+            <li class="cert-course-item"><span class="cert-course-num">06</span>Databases and SQL for Data Science with Python</li>
+            <li class="cert-course-item"><span class="cert-course-num">07</span>Data Analysis with Python</li>
+            <li class="cert-course-item"><span class="cert-course-num">08</span>Data Visualization with Python</li>
+            <li class="cert-course-item"><span class="cert-course-num">09</span>Machine Learning with Python</li>
+            <li class="cert-course-item"><span class="cert-course-num">10</span>Applied Data Science Capstone &mdash; <em style="color:var(--text);font-style:italic;">SpaceX Falcon&nbsp;9 Landing Prediction</em></li>
+          </ul>
+          <div class="cert-capstone">
+            <p class="cert-capstone-note">Capstone project: compiling everything — SQL, Python, machine learning, and interactive dashboards — to forecast whether the Falcon&nbsp;9 first stage will land successfully. Built on real SpaceX launch data, end-to-end from data collection to prediction.</p>
+            <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/8JFWQ732DYVZ"
+               target="_blank" rel="noopener noreferrer" class="cert-cta">
+              View Certificate
+              <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS ACQUIRED -->
+  <section class="ph-section ph-section-bordered" aria-labelledby="skills-heading">
+    <div class="wrap">
+      <p class="section-label rv" id="skills-heading">Skills Acquired</p>
+      <div class="skills-grid">
+        <div class="skill-chip rv"><div class="skill-chip-cat">Language</div>Python</div>
+        <div class="skill-chip rv rv-d1"><div class="skill-chip-cat">Libraries</div>Pandas &amp; NumPy</div>
+        <div class="skill-chip rv rv-d2"><div class="skill-chip-cat">Visualisation</div>Matplotlib &amp; Seaborn</div>
+        <div class="skill-chip rv rv-d3"><div class="skill-chip-cat">ML Framework</div>Scikit-learn</div>
+        <div class="skill-chip rv"><div class="skill-chip-cat">Database</div>SQL &amp; IBM Db2</div>
+        <div class="skill-chip rv rv-d1"><div class="skill-chip-cat">Notebooks</div>Jupyter &amp; JupyterLab</div>
+        <div class="skill-chip rv rv-d2"><div class="skill-chip-cat">Methodology</div>CRISP-DM</div>
+        <div class="skill-chip rv rv-d3"><div class="skill-chip-cat">Platform</div>IBM Watson Studio</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IN PROGRESS -->
+  <section class="ph-section ph-section-bordered" aria-labelledby="inprogress-heading">
+    <div class="wrap">
+      <p class="section-label rv" id="inprogress-heading">In Progress</p>
+      <div class="inprogress-grid">
+        <div class="inprogress-card rv" style="--pct: 60%">
+          <div class="inprogress-status"><span class="status-dot"></span>In Progress</div>
+          <div class="inprogress-title">[Certification Name]</div>
+          <div class="inprogress-issuer">[Issuer] &nbsp;&middot;&nbsp; [Platform]</div>
+          <div class="inprogress-progress">
+            <div class="inprogress-progress-label"><span>Progress</span><span>60%</span></div>
+            <div class="inprogress-bar"><div class="inprogress-fill" style="--pct:60%"></div></div>
+          </div>
+        </div>
+        <div class="inprogress-card rv rv-d1" style="--pct: 35%">
+          <div class="inprogress-status"><span class="status-dot"></span>In Progress</div>
+          <div class="inprogress-title">[Certification Name]</div>
+          <div class="inprogress-issuer">[Issuer] &nbsp;&middot;&nbsp; [Platform]</div>
+          <div class="inprogress-progress">
+            <div class="inprogress-progress-label"><span>Progress</span><span>35%</span></div>
+            <div class="inprogress-bar"><div class="inprogress-fill" style="--pct:35%"></div></div>
+          </div>
+        </div>
+        <div class="inprogress-card rv rv-d2" style="--pct: 20%">
+          <div class="inprogress-status"><span class="status-dot"></span>Starting Soon</div>
+          <div class="inprogress-title">[Certification Name]</div>
+          <div class="inprogress-issuer">[Issuer] &nbsp;&middot;&nbsp; [Platform]</div>
+          <div class="inprogress-progress">
+            <div class="inprogress-progress-label"><span>Progress</span><span>20%</span></div>
+            <div class="inprogress-bar"><div class="inprogress-fill" style="--pct:20%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer role="contentinfo">
+    <div>
+      <div class="foot-brand">Welid Ben Yahmed</div>
+      <div class="foot-sub">Solution &amp; Sales Engineer &nbsp;&middot;&nbsp; Milan &nbsp;&middot;&nbsp; 2025</div>
+    </div>
+    <nav aria-label="Footer">
+      <ul class="foot-links">
+        <li><a href="index.html">Portfolio</a></li>
+        <li><a href="mailto:benyahmed.welid@gmail.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/welid-ben-yahmed-084a83124/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      </ul>
+    </nav>
+  </footer>
+
+  <script>
+  (function () {
+    'use strict';
+    var nav = document.getElementById('pnav');
+    window.addEventListener('scroll', function () {
+      nav.classList.toggle('glass', window.scrollY > 50);
+    }, { passive: true });
+
+    /* Load certificate image if available */
+    var badge = document.getElementById('cert-badge');
+    var placeholder = document.getElementById('cert-placeholder');
+    var exts = ['jpg', 'png', 'jpeg', 'webp'];
+    var tried = 0;
+    function tryNext() {
+      if (tried >= exts.length) return;
+      var img = new Image();
+      img.onload = function () {
+        img.alt = 'IBM Data Science Professional Certificate';
+        img.style.cssText = 'width:100%;height:100%;object-fit:cover;border-radius:4px;';
+        badge.innerHTML = '';
+        badge.appendChild(img);
+      };
+      img.onerror = function () { tried++; tryNext(); };
+      img.src = 'images/certifications/ibm-cert.' + exts[tried++];
+    }
+    tryNext();
+
+    /* Scroll reveal */
+    var rvEls = document.querySelectorAll('.rv');
+    if ('IntersectionObserver' in window) {
+      var rvObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('on'); rvObs.unobserve(e.target); }
+        });
+      }, { threshold: 0.1 });
+      rvEls.forEach(function (el) { rvObs.observe(el); });
+    } else {
+      rvEls.forEach(function (el) { el.classList.add('on'); });
+    }
+
+    /* Progress bar fills */
+    var cards = document.querySelectorAll('.inprogress-card');
+    if ('IntersectionObserver' in window) {
+      var cObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('lit'); cObs.unobserve(e.target); }
+        });
+      }, { threshold: 0.5 });
+      cards.forEach(function (c) { cObs.observe(c); });
+    } else {
+      cards.forEach(function (c) { c.classList.add('lit'); });
+    }
+  }());
+  </script>
+</body>
+</html>

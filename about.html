@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Welid Ben Yahmed</title>
+  <meta name="description" content="More about Welid Ben Yahmed — academic path, double degree between SUPCOM Tunis and University of Trento, hobbies and interests.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:           #08080e;
+      --text:         #f0eee8;
+      --accent:       #3B82F6;
+      --muted:        rgba(240,238,232,0.42);
+      --glass:        rgba(240,238,232,0.05);
+      --glass-border: rgba(240,238,232,0.10);
+      --ff-display:   'Fraunces', Georgia, serif;
+      --ff-body:      'DM Sans', system-ui, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--ff-body); font-size: 16px; line-height: 1.6; overflow-x: hidden; cursor: auto; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+
+    /* GRID TEXTURE */
+    .grid-bg { position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: linear-gradient(rgba(240,238,232,0.028) 1px, transparent 1px), linear-gradient(90deg, rgba(240,238,232,0.028) 1px, transparent 1px);
+      background-size: 80px 80px; }
+
+    /* PNAV */
+    .pnav { position: fixed; inset-block-start: 0; inset-inline: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 1.6rem 4rem; transition: background .4s, backdrop-filter .4s, border-color .4s; border-bottom: 1px solid transparent; }
+    .pnav.glass { background: rgba(8,8,14,.72); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); border-color: var(--glass-border); }
+    .pnav-logo { font-family: var(--ff-display); font-size: 1.15rem; font-weight: 500; letter-spacing: -.02em; text-decoration: none; }
+    .pnav-back { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .2s; }
+    .pnav-back:hover { color: var(--text); }
+
+    /* LAYOUT */
+    .wrap { max-width: 1440px; margin: 0 auto; padding: 0 4rem; }
+    .section-label { display: flex; align-items: center; gap: 1rem; font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 4.5rem; }
+    .section-label::after { content: ''; flex: 0 0 56px; height: 1px; background: var(--glass-border); }
+
+    /* REVEAL */
+    .rv { opacity: 0; transform: translateY(36px); transition: opacity .85s cubic-bezier(.16,1,.3,1), transform .85s cubic-bezier(.16,1,.3,1); }
+    .rv.on { opacity: 1; transform: none; }
+    .rv-d1 { transition-delay: .12s; }
+    .rv-d2 { transition-delay: .24s; }
+    .rv-d3 { transition-delay: .36s; }
+    .rv-d4 { transition-delay: .48s; }
+
+    /* PAGE INTRO */
+    .page-intro { padding: 14rem 0 7rem; position: relative; z-index: 1; }
+    .page-intro .section-label { margin-bottom: 2rem; }
+    .page-title { font-family: var(--ff-display); font-size: clamp(3.8rem, 8vw, 9rem); font-weight: 900; line-height: .92; letter-spacing: -.04em; margin-bottom: 2rem; }
+    .page-title em { font-style: italic; color: var(--accent); }
+    .page-tagline { font-size: 1.1rem; line-height: 1.7; color: var(--muted); max-width: 560px; }
+    .intro-divider { width: 100%; height: 1px; background: var(--glass-border); margin-top: 6rem; }
+
+    /* ACADEMIC JOURNEY */
+    .journey-section { padding: 8rem 0; position: relative; z-index: 1; }
+    .journey-section .section-label { margin-bottom: 3rem; }
+    .journey-heading { font-family: var(--ff-display); font-size: clamp(2.8rem, 5vw, 5.2rem); font-weight: 900; line-height: .96; letter-spacing: -.035em; margin-bottom: 5rem; }
+    .journey-heading em { font-style: italic; color: var(--accent); }
+
+    /* School cards layout */
+    .journey-layout { display: grid; grid-template-columns: 1fr 140px 1fr; gap: 0; align-items: center; margin-bottom: 4rem; }
+
+    .school-card { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 8px; padding: 2.8rem; transition: border-color .3s; position: relative; overflow: hidden; }
+    .school-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(59,130,246,.04) 0%, transparent 60%); pointer-events: none; }
+    .school-card:hover { border-color: rgba(59,130,246,.3); }
+    .school-flag { font-size: 2.4rem; line-height: 1; margin-bottom: 1.6rem; }
+    .school-badge { display: inline-block; font-size: .58rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--glass-border); border-radius: 2px; padding: .22rem .65rem; margin-bottom: 1.4rem; }
+    .school-badge--accent { color: var(--accent); border-color: rgba(59,130,246,.3); }
+    .school-name { font-family: var(--ff-display); font-size: 1.8rem; font-weight: 800; letter-spacing: -.03em; line-height: 1.1; margin-bottom: .6rem; }
+    .school-full { font-size: .82rem; line-height: 1.5; color: var(--muted); margin-bottom: 1.6rem; }
+    .school-meta { display: flex; flex-direction: column; gap: .4rem; }
+    .school-meta-item { display: flex; align-items: center; gap: .6rem; font-size: .8rem; color: rgba(240,238,232,.62); }
+    .school-meta-item::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+
+    /* Journey connector */
+    .journey-connector { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; padding: 1rem 0; }
+    .jc-line { width: 1px; flex: 1; background: linear-gradient(to bottom, transparent, var(--accent), transparent); min-height: 40px; }
+    .jc-badge { font-family: var(--ff-display); font-size: .72rem; font-weight: 700; letter-spacing: .05em; text-align: center; line-height: 1.3; color: var(--accent); background: rgba(59,130,246,.1); border: 1px solid rgba(59,130,246,.25); border-radius: 100px; padding: .5rem .9rem; white-space: nowrap; }
+
+    /* Journey story */
+    .journey-story { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .js-card { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 6px; padding: 2rem 2rem 2rem 1.6rem; display: grid; grid-template-columns: 32px 1fr; gap: 1.2rem; align-items: start; }
+    .js-num { font-family: var(--ff-display); font-size: 1.8rem; font-weight: 900; line-height: 1; color: var(--accent); opacity: .35; }
+    .js-text { font-size: .88rem; line-height: 1.72; color: rgba(240,238,232,.7); padding-top: .35rem; }
+    .js-text strong { color: var(--text); font-weight: 600; display: block; margin-bottom: .3rem; }
+
+    /* HOBBIES */
+    .hobbies-section { padding: 8rem 0 10rem; position: relative; z-index: 1; border-top: 1px solid var(--glass-border); }
+    .hobbies-section .section-label { margin-bottom: 3rem; }
+    .hobbies-heading { font-family: var(--ff-display); font-size: clamp(2.8rem, 5vw, 5.2rem); font-weight: 900; line-height: .96; letter-spacing: -.035em; margin-bottom: 5rem; }
+    .hobbies-heading em { font-style: italic; color: var(--accent); }
+    .hobbies-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.4rem; align-items: start; }
+
+    .hob-card { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 8px; overflow: hidden; transition: border-color .35s; }
+    .hob-card:hover { border-color: rgba(59,130,246,.3); }
+
+    .hob-header { display: flex; align-items: center; gap: 1.6rem; padding: 2.4rem 2.6rem; border-bottom: 1px solid var(--glass-border); }
+    .hob-emoji { font-size: 2.6rem; line-height: 1; flex-shrink: 0; }
+    .hob-title { font-family: var(--ff-display); font-size: 1.6rem; font-weight: 800; letter-spacing: -.025em; line-height: 1.1; }
+    .hob-sub { font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-top: .4rem; }
+
+    .hob-body { padding: 2.4rem 2.6rem; }
+    .hob-text { font-size: .92rem; line-height: 1.78; color: rgba(240,238,232,.7); margin-bottom: 2rem; }
+
+    /* Football card extras */
+    .hob-link { display: inline-flex; align-items: center; gap: .5rem; font-size: .76rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); text-decoration: none; border: 1px solid rgba(59,130,246,.3); border-radius: 100px; padding: .55rem 1.3rem; transition: background .25s, gap .25s; }
+    .hob-link:hover { background: rgba(59,130,246,.1); gap: .75rem; }
+    .hob-link svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .club-meta { display: flex; gap: 1.8rem; margin-bottom: 2rem; }
+    .club-meta-item { display: flex; flex-direction: column; gap: .2rem; }
+    .club-meta-label { font-size: .62rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+    .club-meta-val { font-size: .88rem; font-weight: 500; }
+
+    /* Hiking card extras */
+    .hiking-img-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; margin-top: 1.4rem; }
+    .hiking-img-slot { aspect-ratio: 1; border-radius: 4px; overflow: hidden; background: rgba(240,238,232,.04); border: 1px solid var(--glass-border); }
+    .hiking-img-slot img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .45s cubic-bezier(.16,1,.3,1); }
+    .hiking-img-slot:hover img { transform: scale(1.05); }
+    .hiking-ph-label { font-size: .62rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--glass-border); padding: 2.4rem 4rem; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; }
+    .foot-brand { font-family: var(--ff-display); font-size: 1rem; font-weight: 500; line-height: 1; }
+    .foot-sub { font-size: .68rem; letter-spacing: .08em; color: var(--muted); margin-top: .3rem; }
+    .foot-links { display: flex; gap: 2rem; list-style: none; }
+    .foot-links a { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .2s; }
+    .foot-links a:hover { color: var(--text); }
+
+    /* REDUCED MOTION */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+    }
+
+    /* TABLET */
+    @media (max-width: 1024px) {
+      .pnav { padding: 1.3rem 2rem; }
+      .wrap { padding: 0 2rem; }
+      .page-intro { padding: 11rem 0 5rem; }
+      .journey-layout { grid-template-columns: 1fr; gap: 0; }
+      .journey-connector { flex-direction: row; padding: 0 1rem; height: 60px; }
+      .jc-line { width: auto; height: 1px; flex: 1; min-height: auto; background: linear-gradient(to right, transparent, var(--accent), transparent); }
+      .jc-badge { white-space: nowrap; }
+      .journey-story { grid-template-columns: 1fr; gap: 1rem; }
+      .hobbies-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 1.6rem; text-align: center; }
+    }
+
+    /* MOBILE */
+    @media (max-width: 600px) {
+      .pnav { padding: 1rem 1.5rem; }
+      .wrap { padding: 0 1.5rem; }
+      .page-intro { padding: 9rem 0 4rem; }
+      .school-card { padding: 2rem; }
+      .school-name { font-size: 1.4rem; }
+      .hob-header { padding: 1.8rem 2rem; }
+      .hob-body { padding: 1.8rem 2rem; }
+      .hiking-img-grid { grid-template-columns: repeat(3, 1fr); }
+      footer { padding: 2rem 1.5rem; }
+      .section-label { margin-bottom: 2.5rem; }
+      .journey-heading, .hobbies-heading { margin-bottom: 3rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-bg" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <header class="pnav" id="nav">
+    <a href="index.html" class="pnav-logo">WBY</a>
+    <a href="index.html" class="pnav-back">&#8592; Portfolio</a>
+  </header>
+
+  <!-- PAGE INTRO -->
+  <section class="page-intro">
+    <div class="wrap">
+      <p class="section-label rv">About Me</p>
+      <h1 class="page-title rv rv-d1">Welid<br>Ben <em>Yahmed</em></h1>
+      <p class="page-tagline rv rv-d2">Engineer, seller, language collector. Built in Tunisia, sharpened in Italy, operating in Milan.</p>
+      <div class="intro-divider rv rv-d3"></div>
+    </div>
+  </section>
+
+  <!-- ACADEMIC JOURNEY -->
+  <section class="journey-section">
+    <div class="wrap">
+      <p class="section-label rv">Academic Path</p>
+      <h2 class="journey-heading rv rv-d1">From Tunis<br>to <em>Trento</em></h2>
+
+      <div class="journey-layout rv rv-d2">
+
+        <!-- SUPCOM -->
+        <div class="school-card">
+          <div class="school-flag">&#127481;&#127475;</div>
+          <div class="school-badge">Origin</div>
+          <div class="school-name">SUPCOM</div>
+          <div class="school-full">&Eacute;cole Sup&eacute;rieure des Communications de Tunis</div>
+          <div class="school-meta">
+            <div class="school-meta-item">Tunis, Tunisia</div>
+            <div class="school-meta-item">Telecommunications Engineering</div>
+            <div class="school-meta-item">Grande &Eacute;cole d&rsquo;Ing&eacute;nieurs</div>
+          </div>
+        </div>
+
+        <!-- Connector -->
+        <div class="journey-connector" aria-hidden="true">
+          <div class="jc-line"></div>
+          <div class="jc-badge">Double<br>Degree</div>
+          <div class="jc-line"></div>
+        </div>
+
+        <!-- University of Trento -->
+        <div class="school-card">
+          <div class="school-flag">&#127470;&#127481;</div>
+          <div class="school-badge school-badge--accent">Destination</div>
+          <div class="school-name">Universit&agrave; degli<br>Studi di Trento</div>
+          <div class="school-full">University of Trento &mdash; ICT &amp; AI Engineering</div>
+          <div class="school-meta">
+            <div class="school-meta-item">Trento, Italy</div>
+            <div class="school-meta-item">Telecommunications &amp; ICT Engineering</div>
+            <div class="school-meta-item">Master Thesis @ STMicroelectronics</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Story cards -->
+      <div class="journey-story rv rv-d3">
+        <div class="js-card">
+          <div class="js-num">1</div>
+          <div class="js-text">
+            <strong>New continent.</strong>
+            Left North Africa for the Italian Alps &mdash; a different continent, a different culture, and a completely different pace of life. Trento was small, cold, and extraordinary.
+          </div>
+        </div>
+        <div class="js-card">
+          <div class="js-num">2</div>
+          <div class="js-text">
+            <strong>New language.</strong>
+            Arrived in Trento with zero Italian. Left with professional fluency &mdash; earned while completing a full engineering programme, presenting research, and navigating daily life entirely in Italian.
+          </div>
+        </div>
+        <div class="js-card">
+          <div class="js-num">3</div>
+          <div class="js-text">
+            <strong>Double degree.</strong>
+            Two universities, two countries, one combined diploma &mdash; and a master&rsquo;s thesis at STMicroelectronics that turned Edge AI research into real silicon inference.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HOBBIES -->
+  <section class="hobbies-section">
+    <div class="wrap">
+      <p class="section-label rv">Outside the Office</p>
+      <h2 class="hobbies-heading rv rv-d1">How I<br><em>Recharge</em></h2>
+
+      <div class="hobbies-grid">
+
+        <!-- FOOTBALL -->
+        <div class="hob-card rv rv-d2">
+          <div class="hob-header">
+            <span class="hob-emoji">&#9917;</span>
+            <div>
+              <div class="hob-title">Football</div>
+              <div class="hob-sub">Atletico Bissa &nbsp;&middot;&nbsp; Milan</div>
+            </div>
+          </div>
+          <div class="hob-body">
+            <div class="club-meta">
+              <div class="club-meta-item">
+                <span class="club-meta-label">Club</span>
+                <span class="club-meta-val">Atletico Bissa</span>
+              </div>
+              <div class="club-meta-item">
+                <span class="club-meta-label">City</span>
+                <span class="club-meta-val">Milan, Italy</span>
+              </div>
+              <div class="club-meta-item">
+                <span class="club-meta-label">Format</span>
+                <span class="club-meta-val">Weekly match</span>
+              </div>
+            </div>
+            <p class="hob-text">Playing with Atletico Bissa &mdash; a local club in Milan where the game is taken seriously and the camaraderie even more so. Football is the one place where languages stop mattering and the pitch does the talking.</p>
+            <a href="https://atleticobissa.com/" target="_blank" rel="noopener noreferrer" class="hob-link">
+              Visit Atletico Bissa
+              <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- OUTDOORS -->
+        <div class="hob-card rv rv-d3">
+          <div class="hob-header">
+            <span class="hob-emoji">&#9968;</span>
+            <div>
+              <div class="hob-title">The Outdoors</div>
+              <div class="hob-sub">Lakes &nbsp;&middot;&nbsp; Mountains &nbsp;&middot;&nbsp; Mediterranean</div>
+            </div>
+          </div>
+          <div class="hob-body">
+            <p class="hob-text">From Dolomite trails to the shores of Lago di Garda and Lago di Como, to the Mediterranean coast of Tunisia &mdash; the outdoors is where I reset. Good views, better silence.</p>
+            <div class="hiking-ph-label">Some favourite spots</div>
+            <div class="hiking-img-grid">
+              <div class="hiking-img-slot"><img src="images/hobbies/1779914238330.jpg" alt="" loading="lazy"></div>
+              <div class="hiking-img-slot"><img src="images/hobbies/1779914238353.jpg" alt="" loading="lazy"></div>
+              <div class="hiking-img-slot"><img src="images/hobbies/1779914238386.jpg" alt="" loading="lazy"></div>
+              <div class="hiking-img-slot"><img src="images/hobbies/1779914238420.jpg" alt="" loading="lazy"></div>
+              <div class="hiking-img-slot"><img src="images/hobbies/1779914238451.jpg" alt="" loading="lazy"></div>
+              <div class="hiking-img-slot"><img src="images/hobbies/1779914238482.jpg" alt="" loading="lazy"></div>
+              <div class="hiking-img-slot"><img src="images/hobbies/1779914238519.jpg" alt="" loading="lazy"></div>
+              <div class="hiking-img-slot"><img src="images/hobbies/1779914238553.jpg" alt="" loading="lazy"></div>
+              <div class="hiking-img-slot"><img src="images/hobbies/1779914238584.jpg" alt="" loading="lazy"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <div>
+      <div class="foot-brand">Welid Ben Yahmed</div>
+      <div class="foot-sub">Solution &amp; Sales Engineer &nbsp;&middot;&nbsp; Milan</div>
+    </div>
+    <nav aria-label="Footer">
+      <ul class="foot-links">
+        <li><a href="index.html">Portfolio</a></li>
+        <li><a href="mailto:benyahmed.welid@gmail.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/welid-ben-yahmed-084a83124/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      </ul>
+    </nav>
+  </footer>
+
+  <script>
+  (function () {
+    'use strict';
+
+    /* NAV glass on scroll */
+    var nav = document.getElementById('nav');
+    window.addEventListener('scroll', function () {
+      nav.classList.toggle('glass', window.scrollY > 50);
+    }, { passive: true });
+
+    /* Scroll reveal */
+    var rvEls = document.querySelectorAll('.rv');
+    if ('IntersectionObserver' in window) {
+      var rvObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('on'); rvObs.unobserve(e.target); }
+        });
+      }, { threshold: 0.1 });
+      rvEls.forEach(function (el) { rvObs.observe(el); });
+    } else {
+      rvEls.forEach(function (el) { el.classList.add('on'); });
+    }
+
+  }());
+  </script>
+</body>
+</html>

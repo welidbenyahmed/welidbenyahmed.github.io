@@ -13,7 +13,7 @@
     :root {
       --bg:           #08080e;
       --text:         #f0eee8;
-      --accent:       #c9a96e;
+      --accent:       #3B82F6;
       --muted:        rgba(240,238,232,0.42);
       --glass:        rgba(240,238,232,0.05);
       --glass-border: rgba(240,238,232,0.10);
@@ -38,7 +38,7 @@
     .nav-links a { font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .2s; }
     .nav-links a:hover { color: var(--text); }
     .nav-links .btn-pill { padding: .5rem 1.4rem; background: var(--accent); border-radius: 100px; font-weight: 700; color: var(--bg) !important; transition: box-shadow .25s, transform .2s !important; }
-    .nav-links .btn-pill:hover { box-shadow: 0 0 28px rgba(201,169,110,.45); transform: scale(1.04); }
+    .nav-links .btn-pill:hover { box-shadow: 0 0 28px rgba(59,130,246,.45); transform: scale(1.04); }
 
     /* HERO */
     #hero { position: relative; height: 100svh; min-height: 680px; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; }
@@ -84,23 +84,21 @@
 
     /* PROJECTS */
     #projects { padding: 9rem 0; }
-    .proj-list { list-style: none; }
-    .proj-item { border-top: 1px solid var(--glass-border); overflow: hidden; }
-    .proj-item:last-child { border-bottom: 1px solid var(--glass-border); }
-    .proj-row { display: grid; grid-template-columns: 72px 1fr max-content; align-items: center; gap: 2.5rem; padding: 2.6rem 0; cursor: pointer; transition: padding .5s cubic-bezier(.16,1,.3,1); }
-    .proj-num { font-family: var(--ff-display); font-style: italic; font-size: .82rem; color: var(--accent); font-weight: 300; }
-    .proj-title { font-family: var(--ff-display); font-size: clamp(2rem, 3.8vw, 3.6rem); font-weight: 800; letter-spacing: -.025em; line-height: 1; transition: color .3s; }
-    .proj-meta { text-align: right; font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); line-height: 1.9; }
-    .proj-body { display: grid; grid-template-columns: 300px 1fr; gap: 4rem; align-items: start; max-height: 0; overflow: hidden; clip-path: inset(0 0 100% 0); padding-bottom: 0; transition: max-height .75s cubic-bezier(.16,1,.3,1), clip-path .75s cubic-bezier(.16,1,.3,1), padding .45s; }
-    .proj-item.open .proj-body { max-height: 460px; clip-path: inset(0 0 0% 0); padding-bottom: 3.2rem; }
-    .proj-item.open .proj-row { padding-bottom: 0; }
-    .proj-item.open .proj-title { color: var(--accent); }
-    .proj-thumb { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 3px; filter: grayscale(35%); transition: filter .4s; }
-    .proj-item.open .proj-thumb { filter: grayscale(0); }
-    .proj-tag { display: inline-block; padding: .28rem .8rem; border: 1px solid var(--glass-border); border-radius: 100px; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.4rem; }
-    .proj-desc { font-size: 1rem; line-height: 1.75; color: rgba(240,238,232,.78); margin-bottom: 1.6rem; }
-    .proj-link { display: inline-flex; align-items: center; gap: .45rem; font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); text-decoration: none; }
-    .proj-link svg { width: 14px; height: 14px; stroke: var(--accent); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.4rem; }
+    .proj-card { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; transition: border-color .35s; }
+    .proj-card:hover { border-color: rgba(59,130,246,.4); }
+    .proj-card-img { aspect-ratio: 16/9; overflow: hidden; background: rgba(59,130,246,.04); }
+    .proj-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .65s cubic-bezier(.16,1,.3,1); }
+    .proj-card:hover .proj-card-img img { transform: scale(1.06); }
+    .proj-card-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: var(--ff-display); font-size: 3.5rem; font-weight: 900; color: var(--accent); letter-spacing: -.04em; }
+    .proj-card-body { padding: 1.8rem 2rem 2.2rem; display: flex; flex-direction: column; gap: .85rem; flex: 1; }
+    .proj-card-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .proj-card-tag { font-size: .6rem; letter-spacing: .13em; text-transform: uppercase; color: var(--accent); border: 1px solid rgba(59,130,246,.25); border-radius: 2px; padding: .18rem .55rem; }
+    .proj-card-title { font-family: var(--ff-display); font-size: 1.35rem; font-weight: 700; line-height: 1.2; }
+    .proj-card-desc { font-size: .86rem; line-height: 1.78; color: rgba(240,238,232,.65); flex: 1; }
+    .proj-card-link { display: inline-flex; align-items: center; gap: .45rem; font-size: .76rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); text-decoration: none; margin-top: .4rem; }
+    .proj-card-link svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .25s; }
+    .proj-card-link:hover svg { transform: translateX(4px); }
 
     /* ABOUT */
     #about { padding: 9rem 0; }
@@ -113,13 +111,7 @@
     .about-head em { font-style: italic; color: var(--accent); }
     .about-body { font-size: 1.02rem; line-height: 1.82; color: rgba(240,238,232,.72); margin-bottom: 3.2rem; }
     .about-body p + p { margin-top: 1.4rem; }
-    .skills { margin-top: .5rem; }
-    .skill-row { display: flex; justify-content: space-between; align-items: center; padding: .95rem 0; border-bottom: 1px solid var(--glass-border); }
-    .skill-name { font-size: .85rem; }
-    .skill-bar { width: 72px; height: 2px; background: var(--glass-border); border-radius: 1px; overflow: hidden; }
-    .skill-fill { height: 100%; width: 0; background: var(--accent); border-radius: 1px; transition: width 1.3s cubic-bezier(.16,1,.3,1); }
-    .skill-row.lit .skill-fill { width: var(--pct); }
-    .stats { display: flex; gap: 3.5rem; margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--glass-border); }
+    .stats { display: flex; gap: 3.5rem; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--glass-border); }
     .stat-val { font-family: var(--ff-display); font-size: 3.5rem; font-weight: 900; letter-spacing: -.04em; color: var(--accent); line-height: 1; }
     .stat-label { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-top: .3rem; }
 
@@ -127,7 +119,7 @@
     #languages { padding: 7rem 0; border-top: 1px solid var(--glass-border); }
     .lang-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
     .lang-card { padding: 2.2rem 2rem; border: 1px solid var(--glass-border); border-radius: 4px; background: var(--glass); transition: border-color .3s, background .3s; }
-    .lang-card:hover { border-color: var(--accent); background: rgba(201,169,110,.06); }
+    .lang-card:hover { border-color: var(--accent); background: rgba(59,130,246,.06); }
     .lang-flag { font-size: 2.2rem; line-height: 1; margin-bottom: 1.2rem; }
     .lang-name { font-family: var(--ff-display); font-size: 1.5rem; font-weight: 700; letter-spacing: -.02em; margin-bottom: .4rem; }
     .lang-level { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; }
@@ -135,16 +127,9 @@
     .lang-fill { height: 100%; width: 0; background: var(--accent); border-radius: 1px; transition: width 1.4s cubic-bezier(.16,1,.3,1); }
     .lang-card.lit .lang-fill { width: var(--pct); }
 
-    /* CONTENT */
-    #content { padding: 9rem 0; }
-    .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
-    .c-card { position: relative; overflow: hidden; border-radius: 4px; }
-    .c-card img { width: 100%; aspect-ratio: 4/5; object-fit: cover; filter: grayscale(30%); transition: transform .65s cubic-bezier(.16,1,.3,1), filter .4s; }
-    .c-card:hover img { transform: scale(1.07); filter: grayscale(0); }
-    .c-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,8,14,.92) 0%, rgba(8,8,14,.1) 55%, transparent 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 2rem; opacity: 0; transition: opacity .38s; }
-    .c-card:hover .c-overlay { opacity: 1; }
-    .c-label { font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: .45rem; }
-    .c-title { font-family: var(--ff-display); font-size: 1.4rem; font-weight: 600; line-height: 1.2; }
+    .about-more-link { display: inline-flex; align-items: center; gap: .5rem; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); text-decoration: none; margin-top: 2.2rem; transition: gap .25s; }
+    .about-more-link:hover { gap: .85rem; }
+    .about-more-link svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
     /* CONTACT */
     #contact { padding: 11rem 0 9rem; text-align: center; border-top: 1px solid var(--glass-border); }
@@ -154,7 +139,7 @@
     .contact-email { display: inline-block; font-size: .92rem; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid var(--glass-border); padding-bottom: .3rem; margin-bottom: 4.5rem; transition: color .25s, border-color .25s; }
     .contact-email:hover { color: var(--accent); border-color: var(--accent); }
     .mag-btn { display: inline-flex; align-items: center; gap: .85rem; padding: 1.1rem 3.2rem; background: var(--accent); color: var(--bg); font-family: var(--ff-body); font-size: .85rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; border-radius: 100px; transition: box-shadow .3s; will-change: transform; }
-    .mag-btn:hover { box-shadow: 0 0 48px rgba(201,169,110,.5); }
+    .mag-btn:hover { box-shadow: 0 0 48px rgba(59,130,246,.5); }
     .mag-icon { width: 22px; height: 22px; border: 2px solid var(--bg); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .8rem; font-style: normal; }
 
     /* FOOTER */
@@ -164,6 +149,7 @@
     .foot-links { display: flex; gap: 2rem; list-style: none; }
     .foot-links a { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .2s; }
     .foot-links a:hover { color: var(--text); }
+
 
     /* REDUCED MOTION */
     @media (prefers-reduced-motion: reduce) {
@@ -184,10 +170,7 @@
       .about-portrait { max-width: 220px; aspect-ratio: 1/1; }
       .about-caption { max-width: 220px; }
       .stats { gap: 2rem; }
-      .proj-row { grid-template-columns: 60px 1fr; }
-      .proj-meta { display: none; }
-      .proj-body { grid-template-columns: 1fr; }
-      .proj-thumb { display: none; }
+      .proj-grid { grid-template-columns: repeat(2, 1fr); }
       .lang-grid { grid-template-columns: repeat(2, 1fr); }
       footer { flex-direction: column; gap: 1.6rem; text-align: center; }
     }
@@ -206,15 +189,14 @@
       .hero-l { position: relative; z-index: 2; flex: 1; padding: 2rem 1.5rem 3.5rem; justify-content: flex-start; }
       .hero-name { font-size: clamp(3rem, 13vw, 5rem); }
       .scroll-cue { display: none; }
-      #projects, #about, #content, #languages { padding: 5.5rem 0; }
+      #projects, #about, #languages { padding: 5.5rem 0; }
       .section-label { margin-bottom: 2.5rem; }
-      .proj-row { padding: 1.8rem 0; gap: 1.2rem; grid-template-columns: 46px 1fr; }
+      .proj-grid { grid-template-columns: 1fr; gap: 1.6rem; }
       .about-portrait { max-width: 160px; aspect-ratio: 1/1; }
       .about-caption { max-width: 160px; }
       .stats { flex-wrap: wrap; gap: 1.8rem 2.5rem; }
       .lang-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
       .lang-card { padding: 1.5rem 1.2rem; }
-      .content-grid { grid-template-columns: 1fr; }
       #contact { padding: 7rem 0 5.5rem; }
       footer { padding: 2rem 1.5rem; }
     }
@@ -230,7 +212,6 @@
       <ul class="nav-links">
         <li><a href="#projects">Work</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#content">Content</a></li>
         <li><a href="#contact" class="btn-pill">Let's Talk</a></li>
       </ul>
     </nav>
@@ -253,7 +234,7 @@
       </div>
     </div>
     <div class="hero-r" aria-hidden="true">
-      <img src="hero.jpg" alt="" id="hero-img" fetchpriority="high">
+      <img src="images/hero.jpg" alt="" id="hero-img" fetchpriority="high">
     </div>
     <div class="scroll-cue" aria-hidden="true">
       <span class="scroll-cue-label">Scroll</span>
@@ -273,8 +254,9 @@
       <span class="t-item">LLMs<span class="t-sep">&times;</span></span>
       <span class="t-item"><span class="ta">B2B Sales</span><span class="t-sep">&times;</span></span>
       <span class="t-item">Data Science<span class="t-sep">&times;</span></span>
-      <span class="t-item"><span class="ta">Solution Engineering</span><span class="t-sep">&times;</span></span>
-      <span class="t-item">Milan, Italy<span class="t-sep">&times;</span></span>
+      <span class="t-item"><span class="ta">Telecommunications</span><span class="t-sep">&times;</span></span>
+      <span class="t-item">Solution Engineering<span class="t-sep">&times;</span></span>
+      <span class="t-item"><span class="ta">Milan, Italy</span><span class="t-sep">&times;</span></span>
       <span class="t-item"><span class="ta">AI</span><span class="t-sep">&times;</span></span>
       <span class="t-item">TinyML<span class="t-sep">&times;</span></span>
       <span class="t-item"><span class="ta">STMicroelectronics</span><span class="t-sep">&times;</span></span>
@@ -285,46 +267,66 @@
       <span class="t-item">LLMs<span class="t-sep">&times;</span></span>
       <span class="t-item"><span class="ta">B2B Sales</span><span class="t-sep">&times;</span></span>
       <span class="t-item">Data Science<span class="t-sep">&times;</span></span>
-      <span class="t-item"><span class="ta">Solution Engineering</span><span class="t-sep">&times;</span></span>
-      <span class="t-item">Milan, Italy<span class="t-sep">&times;</span></span>
+      <span class="t-item"><span class="ta">Telecommunications</span><span class="t-sep">&times;</span></span>
+      <span class="t-item">Solution Engineering<span class="t-sep">&times;</span></span>
+      <span class="t-item"><span class="ta">Milan, Italy</span><span class="t-sep">&times;</span></span>
     </div>
   </div>
 
   <section id="projects" aria-labelledby="proj-heading">
     <div class="wrap">
       <p class="section-label rv" id="proj-heading">Selected Work</p>
-      <ul class="proj-list" role="list">
-        <li class="proj-item rv">
-          <div class="proj-row" role="button" tabindex="0" aria-expanded="false" aria-controls="pb1">
-            <span class="proj-num">01</span>
-            <h2 class="proj-title">TinyML<br>STMicro&shy;electronics</h2>
-            <div class="proj-meta"><div>Edge AI &middot; R&amp;D</div><div>Master Thesis</div></div>
+      <div class="proj-grid">
+
+        <div class="proj-card rv">
+          <div class="proj-card-img">
+            <img src="images/stmicro/stmicro-1.jpg" alt="TinyML @ STMicroelectronics" loading="lazy">
           </div>
-          <div class="proj-body" id="pb1" aria-hidden="true">
-            <img src="project1.jpg" alt="TinyML project" class="proj-thumb" loading="lazy">
-            <div>
-              <span class="proj-tag">Edge AI &nbsp;&middot;&nbsp; Embedded Systems &nbsp;&middot;&nbsp; Thesis</span>
-              <p class="proj-desc">Master thesis research deploying TinyML models on STMicroelectronics STM32 microcontrollers. Designed lightweight convolutional networks for real-time on-device inference — proving that intelligence can live at the very edge, with zero cloud dependency and millisecond latency.</p>
-              <a href="#" class="proj-link">View Case Study <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <div class="proj-card-body">
+            <div class="proj-card-tags">
+              <span class="proj-card-tag">Master Thesis</span>
+              <span class="proj-card-tag">Edge AI</span>
+              <span class="proj-card-tag">TinyML</span>
             </div>
+            <h2 class="proj-card-title">TinyML @ STMicro&shy;electronics</h2>
+            <p class="proj-card-desc">Deploying convolutional networks on STM32 microcontrollers for real-time on-device inference — proving that intelligence can live at the edge with zero cloud dependency and millisecond latency.</p>
+            <a href="stmicro.html" class="proj-card-link">View Case Study <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
           </div>
-        </li>
-        <li class="proj-item rv rv-d1">
-          <div class="proj-row" role="button" tabindex="0" aria-expanded="false" aria-controls="pb2">
-            <span class="proj-num">02</span>
-            <h2 class="proj-title">Infobip<br>CX Consultant</h2>
-            <div class="proj-meta"><div>CX &amp; SaaS</div><div>Solution Engineer</div></div>
+        </div>
+
+        <div class="proj-card rv rv-d1">
+          <div class="proj-card-img">
+            <img src="images/rag/cover.jpg" alt="RAG and LLM Engineering" loading="lazy">
           </div>
-          <div class="proj-body" id="pb2" aria-hidden="true">
-            <img src="project2.jpg" alt="Infobip project" class="proj-thumb" loading="lazy">
-            <div>
-              <span class="proj-tag">CX &nbsp;&middot;&nbsp; SaaS &nbsp;&middot;&nbsp; Enterprise B2B</span>
-              <p class="proj-desc">End-to-end solution engineering at Infobip: architecting enterprise customer experience platforms for large-scale B2B clients across EMEA. Translated complex technical capabilities into compelling business narratives — closing deals through both code demos and boardroom presentations.</p>
-              <a href="#" class="proj-link">View Case Study <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <div class="proj-card-body">
+            <div class="proj-card-tags">
+              <span class="proj-card-tag">Active Project</span>
+              <span class="proj-card-tag">RAG</span>
+              <span class="proj-card-tag">LLMs</span>
             </div>
+            <h2 class="proj-card-title">RAG &amp; LLM Engineering</h2>
+            <p class="proj-card-desc">Building production-grade RAG pipelines on Infobip's omnichannel platform — grounding LLM responses in enterprise knowledge bases and delivering them across WhatsApp, Web Chat, and SMS.</p>
+            <a href="rag-llm.html" class="proj-card-link">View Project <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
           </div>
-        </li>
-      </ul>
+        </div>
+
+        <div class="proj-card rv rv-d2">
+          <div class="proj-card-img">
+            <div class="proj-card-placeholder">IBM</div>
+          </div>
+          <div class="proj-card-body">
+            <div class="proj-card-tags">
+              <span class="proj-card-tag">IBM</span>
+              <span class="proj-card-tag">Coursera</span>
+              <span class="proj-card-tag">Data Science</span>
+            </div>
+            <h2 class="proj-card-title">Certifications &amp; Learning</h2>
+            <p class="proj-card-desc">IBM Data Science Professional Certificate — 10-course curriculum spanning Python, SQL, machine learning and data visualisation. Ongoing AI and engineering credentials to stay at the cutting edge.</p>
+            <a href="certifications.html" class="proj-card-link">View Certifications <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -333,7 +335,7 @@
       <p class="section-label rv">About Me</p>
       <div class="about-grid">
         <div class="about-sticky rv">
-          <img src="about.jpg" alt="Welid Ben Yahmed" class="about-portrait" loading="lazy">
+          <img src="images/about.jpg" alt="Welid Ben Yahmed" class="about-portrait" loading="lazy">
           <div class="about-caption">
             <span>Welid Ben Yahmed</span>
             <span>Milan &middot; 27</span>
@@ -341,23 +343,18 @@
         </div>
         <div>
           <h2 class="about-head rv" id="about-heading">Where<br><em>AI Meets</em><br>Sales.</h2>
-          <div class="about-body rv rv-d1">
-            <p>I'm a 27-year-old Solution and Sales Engineer based in Milan — fluent in both Python and pitch decks. My work sits at the intersection of deep technical expertise and commercial strategy, where I help organisations understand, adopt, and buy complex AI-driven technology.</p>
-            <p>My background spans Edge AI research (TinyML on STM32 microcontrollers for my master's thesis), enterprise CX consulting at Infobip across EMEA, and hands-on fluency in RAG architectures, LLM fine-tuning, and data science workflows. I believe the best engineers speak two languages — machine and human.</p>
-          </div>
-          <div class="skills rv rv-d2">
-            <div class="skill-row" style="--pct:95%"><span class="skill-name">AI &amp; TinyML</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
-            <div class="skill-row" style="--pct:88%"><span class="skill-name">RAG &amp; LLMs</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
-            <div class="skill-row" style="--pct:92%"><span class="skill-name">B2B Sales</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
-            <div class="skill-row" style="--pct:84%"><span class="skill-name">Data Science</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
-            <div class="skill-row" style="--pct:87%"><span class="skill-name">Solution Engineering</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
-            <div class="skill-row" style="--pct:78%"><span class="skill-name">Embedded Systems</span><div class="skill-bar"><div class="skill-fill"></div></div></div>
-          </div>
-          <div class="stats rv rv-d3">
+          <div class="stats rv rv-d1">
             <div><div class="stat-val">27</div><div class="stat-label">Years Old</div></div>
             <div><div class="stat-val">2</div><div class="stat-label">Industries</div></div>
             <div><div class="stat-val">&infin;</div><div class="stat-label">Curiosity</div></div>
           </div>
+          <div class="about-body rv rv-d2">
+            <p>Curious by nature. Constant learner by choice. Fast at learning, faster at adapting.</p>
+            <p>What I love most? Turning complex technology into clear customer value &mdash; and lately, into closed deals. I&rsquo;m building a career across Sales, Management and Consulting in tech: currently selling IT and AI-driven software into the UK telecom market from Milan, after a double engineering degree between Tunis and Trento and an AI research stint at STMicroelectronics.</p>
+            <p>Five languages, a sixth in progress, and a working theory that the people who can translate technology will always outperform the ones who can only build it.</p>
+            <p>I came to engineering because I love how things work. I ended up in sales because I love watching them land.</p>
+          </div>
+          <a href="about.html" class="about-more-link rv rv-d2">More about Welid <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
       </div>
     </div>
@@ -390,22 +387,6 @@
           <div class="lang-name">Arabic</div>
           <div class="lang-level">Native</div>
           <div class="lang-bar"><div class="lang-fill" style="--pct:100%"></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="content" aria-labelledby="content-heading">
-    <div class="wrap">
-      <p class="section-label rv" id="content-heading">Content</p>
-      <div class="content-grid">
-        <div class="c-card rv">
-          <img src="card1.jpg" alt="AI Insights article" loading="lazy">
-          <div class="c-overlay"><p class="c-label">AI Insights</p><h3 class="c-title">TinyML on the Edge &mdash; The Future of Embedded Intelligence</h3></div>
-        </div>
-        <div class="c-card rv rv-d1">
-          <img src="card2.jpg" alt="B2B Strategy article" loading="lazy">
-          <div class="c-overlay"><p class="c-label">B2B Strategy</p><h3 class="c-title">Selling Complex Solutions &mdash; The Art of Technical Sales</h3></div>
         </div>
       </div>
     </div>
@@ -469,34 +450,9 @@
       rvEls.forEach(function (el) { el.classList.add('on'); });
     }
 
-    /* Project expand / collapse */
-    var projItems = document.querySelectorAll('.proj-item');
-    function toggleProj(item) {
-      var wasOpen = item.classList.contains('open');
-      projItems.forEach(function (i) {
-        i.classList.remove('open');
-        var r = i.querySelector('.proj-row'), b = i.querySelector('.proj-body');
-        if (r) r.setAttribute('aria-expanded', 'false');
-        if (b) b.setAttribute('aria-hidden', 'true');
-      });
-      if (!wasOpen) {
-        item.classList.add('open');
-        var r = item.querySelector('.proj-row'), b = item.querySelector('.proj-body');
-        if (r) r.setAttribute('aria-expanded', 'true');
-        if (b) b.setAttribute('aria-hidden', 'false');
-      }
-    }
-    projItems.forEach(function (item) {
-      var row = item.querySelector('.proj-row');
-      if (!row) return;
-      row.addEventListener('click', function () { toggleProj(item); });
-      row.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleProj(item); }
-      });
-    });
 
     /* Skill + language bar fills */
-    var bars = document.querySelectorAll('.skill-row, .lang-card');
+    var bars = document.querySelectorAll('.lang-card');
     if ('IntersectionObserver' in window) {
       var bObs = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {
